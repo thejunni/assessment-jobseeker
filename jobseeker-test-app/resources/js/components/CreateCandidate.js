@@ -36,7 +36,7 @@ const CreateCandidate = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post("/api/candidates-store", formData)
+            .post("/api/candidates/store", formData)
             .then((response) => {
                 setSuccess(true);
                 setError("");

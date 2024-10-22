@@ -2122,7 +2122,7 @@ var CreateCandidate = function CreateCandidate() {
   };
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/candidates-store", formData).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/candidates/store", formData).then(function (response) {
       setSuccess(true);
       setError("");
       setFormData({

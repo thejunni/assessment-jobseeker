@@ -10,7 +10,7 @@ const MainNavbar = () => {
                     <NavLink href="/candidates">Candidates</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="/vacancies">Vacancies</NavLink>
+                    <NavLink href="/vacancy">Vacancies</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="/applicants">Applicants</NavLink>

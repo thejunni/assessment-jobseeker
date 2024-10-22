@@ -10,10 +10,20 @@ class ApplicantController extends Controller
     // Show all applicants
     public function index()
     {
+        return view('applicants.index');
+    }
+
+    public function getData()
+    {
         return response()->json(Applicant::all());
     }
 
     // Store a newly created applicant
+    public function create()
+    {
+        return view('applicants.create');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -30,10 +40,19 @@ class ApplicantController extends Controller
     // Show a single applicant by id
     public function show($id)
     {
-        $applicant = Applicant::findOrFail($id);
+        $applicant = Applicant::find($id);
+
+        if (!$applicant) {
+            return response()->json(['error' => 'applic$applicant not found'], 404);
+        }
+
         return response()->json($applicant);
     }
 
+    public function formUpdate()
+    {
+        return view('applicants.edit');
+    }
     // Update an applicant
     public function update(Request $request, $id)
     {
@@ -52,6 +71,7 @@ class ApplicantController extends Controller
     // Delete an applicant
     public function destroy($id)
     {
+        $id = intval($id);
         Applicant::destroy($id);
         return response()->json(null, 204);
     }

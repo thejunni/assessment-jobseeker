@@ -10,9 +10,18 @@ class VacancyController extends Controller
     // Show all vacancies
     public function index()
     {
+        return view('vacancy.index');
+    }
+
+    public function getData()
+    {
         return response()->json(Vacancy::all());
     }
 
+    public function create()
+    {
+        return view('vacancy.create');
+    }
     // Store a newly created vacancy
     public function store(Request $request)
     {
@@ -32,10 +41,19 @@ class VacancyController extends Controller
     // Show a single vacancy by id
     public function show($id)
     {
-        $vacancy = Vacancy::findOrFail($id);
+        $vacancy = Vacancy::find($id);
+
+        if (!$vacancy) {
+            return response()->json(['error' => 'vacancy not found'], 404);
+        }
+
         return response()->json($vacancy);
     }
 
+    public function formUpdate()
+    {
+        return view('vacancy.edit');
+    }
     // Update a vacancy
     public function update(Request $request, $id)
     {
@@ -57,6 +75,7 @@ class VacancyController extends Controller
     // Delete a vacancy
     public function destroy($id)
     {
+        $id = intval($id);
         Vacancy::destroy($id);
         return response()->json(null, 204);
     }

@@ -47,7 +47,7 @@ const EditCandidate = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios
-            .put(`/api/candidates-update/${id}`, candidate)
+            .put(`/api/candidates/update/${id}`, candidate)
             .then((response) => {
                 alert("Candidate updated successfully!");
                 window.location.href = "/candidates"; // Redirect to candidates list

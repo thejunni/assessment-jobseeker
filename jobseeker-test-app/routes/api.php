@@ -25,8 +25,26 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::resource('vacancies', VacancyController::class);
 // Route::resource('applicants', ApplicantController::class);
 
-Route::get('/candidates', [CandidateController::class, 'getData'])->name('getData');
-Route::post('/candidates-store', [CandidateController::class, 'store'])->name('store');
-Route::get('/candidates-id/{id}', [CandidateController::class, 'show'])->name('show');
-Route::put('/candidates-update/{id}', [CandidateController::class, 'update'])->name('update');
-Route::delete('/candidates-delete/{id}', [CandidateController::class, 'destroy'])->name('destroy');
+Route::prefix('candidates')->group(function () {
+    Route::get('/', [CandidateController::class, 'getData'])->name('candidates.getData');
+    Route::post('/store', [CandidateController::class, 'store'])->name('candidates.store');
+    Route::get('/{id}', [CandidateController::class, 'show'])->name('candidates.show');
+    Route::put('/update/{id}', [CandidateController::class, 'update'])->name('candidates.update');
+    Route::delete('/{id}', [CandidateController::class, 'destroy'])->name('candidates.destroy');
+});
+
+Route::prefix('vacancy')->group(function () {
+    Route::get('/', [VacancyController::class, 'getData'])->name('vacancy.getData');
+    Route::post('/store', [VacancyController::class, 'store'])->name('vacancy.store');
+    Route::get('/{id}', [VacancyController::class, 'show'])->name('vacancy.show');
+    Route::put('/update/{id}', [VacancyController::class, 'update'])->name('vacancy.update');
+    Route::delete('/{id}', [VacancyController::class, 'destroy'])->name('vacancy.destroy');
+});
+
+Route::prefix('applicants')->group(function () {
+    Route::get('/', [ApplicantController::class, 'getData'])->name('applicant.getData');
+    Route::post('/store', [ApplicantController::class, 'store'])->name('applicant.store');
+    Route::get('/{id}', [ApplicantController::class, 'show'])->name('applicant.show');
+    Route::put('/update/{id}', [ApplicantController::class, 'update'])->name('applicant.update');
+    Route::delete('/{id}', [ApplicantController::class, 'destroy'])->name('applicant.destroy');
+});

@@ -3,5 +3,11 @@
     "/js/candidates.js": "/js/candidates.js",
     "/js/create-candidates.js": "/js/create-candidates.js",
     "/js/edit-candidates.js": "/js/edit-candidates.js",
+    "/js/vacancy.js": "/js/vacancy.js",
+    "/js/create-vacancy.js": "/js/create-vacancy.js",
+    "/js/edit-vacancy.js": "/js/edit-vacancy.js",
+    "/js/applicants.js": "/js/applicants.js",
+    "/js/create-applicants.js": "/js/create-applicants.js",
+    "/js/edit-applicants.js": "/js/edit-applicants.js",
     "/css/app.css": "/css/app.css"
 }

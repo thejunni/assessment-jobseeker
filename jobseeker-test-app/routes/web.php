@@ -23,6 +23,20 @@ Route::get('/', function () {
 // Route::resource('vacancies', VacancyController::class);
 // Route::resource('applicants', ApplicantController::class);
 
-Route::get('/candidates', [CandidateController::class, 'index'])->name('index');
-Route::get('/candidates/create', [CandidateController::class, 'create'])->name('create');
-Route::get('/candidates/update/{id}', [CandidateController::class, 'formUpdate'])->name('formUpdate');
+Route::prefix('candidates')->group(function () {
+    Route::get('/', [CandidateController::class, 'index'])->name('candidates.index');
+    Route::get('/create', [CandidateController::class, 'create'])->name('candidates.create');
+    Route::get('/update/{id}', [CandidateController::class, 'formUpdate'])->name('candidates.formUpdate');
+});
+
+Route::prefix('vacancy')->group(function () {
+    Route::get('/', [VacancyController::class, 'index'])->name('vacancy.index');
+    Route::get('/create', [VacancyController::class, 'create'])->name('vacancy.create');
+    Route::get('/update/{id}', [VacancyController::class, 'formUpdate'])->name('vacancy.formUpdate');
+});
+
+Route::prefix('applicants')->group(function () {
+    Route::get('/', [ApplicantController::class, 'index'])->name('applicant.index');
+    Route::get('/create', [ApplicantController::class, 'create'])->name('applicant.create');
+    Route::get('/update/{id}', [ApplicantController::class, 'formUpdate'])->name('applicant.formUpdate');
+});

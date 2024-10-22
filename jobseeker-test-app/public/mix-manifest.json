@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/js/candidates.js": "/js/candidates.js",
     "/js/create-candidates.js": "/js/create-candidates.js",
+    "/js/edit-candidates.js": "/js/edit-candidates.js",
     "/css/app.css": "/css/app.css"
 }

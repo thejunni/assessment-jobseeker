@@ -8,7 +8,9 @@ import {
     Input,
     Button,
     Alert,
+    Col,
 } from "reactstrap";
+import { ArrowLeft } from "react-feather";
 
 const CreateCandidate = () => {
     const [formData, setFormData] = useState({
@@ -34,7 +36,7 @@ const CreateCandidate = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post("/api/candidates", formData)
+            .post("/api/candidates-store", formData)
             .then((response) => {
                 setSuccess(true);
                 setError("");
@@ -48,6 +50,7 @@ const CreateCandidate = () => {
                     phone_number: "",
                     last_salary: "",
                 });
+                window.location.href = "/candidates";
             })
             .catch((error) => {
                 console.error("Error creating candidate:", error);
@@ -56,9 +59,18 @@ const CreateCandidate = () => {
             });
     };
 
+    const handleAddCandidate = () => {
+        window.location.href = "/candidates";
+    };
+
     return (
         <Container className="mt-5">
             <h1 className="mb-4">Create Candidate</h1>
+            <Col className="d-flex justify-content-start mb-3">
+                <Button color="primary" onClick={handleAddCandidate}>
+                    <ArrowLeft />
+                </Button>
+            </Col>
             {success && (
                 <Alert color="success">Candidate created successfully!</Alert>
             )}

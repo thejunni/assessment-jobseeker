@@ -2,26 +2,26 @@ import ReactDOM from "react-dom";
 import { Col, Row } from "reactstrap";
 import MainNavbar from "./components/Navbar";
 
-import CreateCandidate from "./components/CreateCandidate";
+import EditCandidate from "./components/EditCandidate";
 
-const CandidateListForm = () => {
+const CandidateEditForm = () => {
     return (
         <Col>
             <MainNavbar />
             <Row>
                 <Col sm="12">
-                    <CreateCandidate />
+                    <EditCandidate />
                 </Col>
             </Row>
         </Col>
     );
 };
 
-export default CandidateListForm;
+export default CandidateEditForm;
 
-if (document.getElementById("create-candidate")) {
+if (document.getElementById("edit-candidate")) {
     ReactDOM.render(
-        <CandidateListForm />,
-        document.getElementById("create-candidate")
+        <CandidateEditForm />,
+        document.getElementById("edit-candidate")
     );
 }

@@ -25,3 +25,4 @@ Route::get('/', function () {
 
 Route::get('/candidates', [CandidateController::class, 'index'])->name('index');
 Route::get('/candidates/create', [CandidateController::class, 'create'])->name('create');
+Route::get('/candidates/update/{id}', [CandidateController::class, 'formUpdate'])->name('formUpdate');

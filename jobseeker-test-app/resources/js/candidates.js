@@ -1,15 +1,19 @@
 import ReactDOM from "react-dom";
 import { Col, Row } from "reactstrap";
+import MainNavbar from "./components/Navbar";
 
 import CandidateList from "./components/CandidateList";
 
 const CandidateListIndex = () => {
     return (
-        <Row>
-            <Col sm="12">
-                <CandidateList />
-            </Col>
-        </Row>
+        <Col>
+            <MainNavbar />
+            <Row>
+                <Col sm="12">
+                    <CandidateList />
+                </Col>
+            </Row>
+        </Col>
     );
 };
 

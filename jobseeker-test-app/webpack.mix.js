@@ -16,5 +16,6 @@ const mix = require("laravel-mix");
 mix.js("resources/js/app.js", "public/js")
     .js("resources/js/candidates.js", "public/js")
     .js("resources/js/create-candidates.js", "public/js")
+    .js("resources/js/edit-candidates.js", "public/js")
     .react()
     .sass("resources/sass/app.scss", "public/css");

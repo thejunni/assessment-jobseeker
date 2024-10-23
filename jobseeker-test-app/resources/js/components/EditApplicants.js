@@ -162,7 +162,13 @@ const EditApplicants = () => {
                         type="date"
                         id="apply_date"
                         name="apply_date"
-                        value={formData.apply_date}
+                        value={
+                            formData.apply_date
+                                ? new Date(formData.apply_date)
+                                      .toISOString()
+                                      .split("T")[0]
+                                : ""
+                        }
                         onChange={handleChange}
                         required
                         className="form-control"
